@@ -1,0 +1,70 @@
+{{ define "wordAdmin"}}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<title>Game - word admin</title>
+		<link rel="stylesheet" href="/assets/style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+
+<body class="menu">
+		<input type="hidden" name="privateKey" value="{{.PrivateKey}}" id="privateKey">
+		<h1 id="word" class="{{.Class}} word-out">{{ .Word }}</h1>
+		<p id="hp" style="display: none;">{{.Hp}}</p>
+		<img  alt="" id="img">
+			<script>
+				function ajax() {
+					$.ajax({
+						url: "/getInfoWord/",
+						type: "GET",
+						data: {
+							privateKey: document.getElementById("privateKey").value,
+						},
+						dataType: "text",
+						beforeSend: function() {},
+						success: function(data){
+							document.getElementById("word").innerHTML=data;
+					}
+				})
+					$.ajax({
+						url: "/getInfoHp/",
+						type: "GET",
+						data: {
+							privateKey: document.getElementById("privateKey").value,
+						},
+						dataType: "text",
+						beforeSend: function() {},
+						success: function(data){
+							document.getElementById("hp").innerHTML=data;
+					}
+				})
+					$.ajax({
+						url: "/getInfoClass/",
+						type: "GET",
+						data: {
+							privateKey: document.getElementById("privateKey").value,
+						},
+						dataType: "text",
+						beforeSend: function() {},
+						success: function(data){
+							document.getElementById("word").setAttribute("class", data+" word-out");
+					}
+				})
+					var index   = document.getElementById("hp").innerHTML;
+					var pathImg = "/assets/img/" + String(index)+".png"
+					var img 	= document.getElementById('img')
+					img.setAttribute("height", 200)
+					img.setAttribute("src", pathImg)
+
+					if(index==11){
+						document.getElementById("form").innerHTML=""
+					}
+				}
+				setInterval(ajax, 1000)
+			</script>
+</body>
+</html>
+
+{{ end }}

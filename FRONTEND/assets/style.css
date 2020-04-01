@@ -1,0 +1,74 @@
+
+html {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+  background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+  background-size: 15px 15px;
+  background-position: center center;
+}
+
+.index-link {
+	color: #ff0000;
+	font-weight: bold;
+	font-size: 100px;
+	display: block;	
+	text-decoration: none;
+	text-shadow: 5px 5px #777;
+}
+
+a:visited {
+}
+a:visited:hover {
+}
+
+a:hover {
+}
+
+.undefined {
+}
+
+.los {
+	color: #ff0000;
+}
+
+.win {
+	color: #008033;
+	border-bottom: 2px solid #008033;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+
+.menu{
+	text-align: center;
+}
+
+.input {
+	border: none;
+	border-bottom: 4px solid #00f;
+	width: 45%;
+	height: 30px;
+	background-color: rgba(0,0,0,0);
+	display: inline;
+}
+
+.input-button {
+	background-color: #00f;
+	border: none;
+	color: #FFF;
+	width: 8%;
+	font-size: 83%;
+	height: 35px;
+	cursor: pointer;
+}
+
+.word-out {
+	font-family: 'Montserrat';
+	letter-spacing: 10px;
+}
+
+p#hp {
+	display: none;
+}

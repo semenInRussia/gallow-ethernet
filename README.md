@@ -1,4 +1,6 @@
-#Gallow
+# Gallow (Виселица)
+С помощью этого проекта вы можете играть в виселицу по интернету в web-версии
 
-This is project create golang server by http re	quest.
-Customer can create game, other can join by game.
+## Стек
+* Golang (Base Library)
+* CSS / HTML / JavaScript
